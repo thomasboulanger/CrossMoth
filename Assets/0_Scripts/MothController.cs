@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class MothController : MonoBehaviour
 {
-    [Header("Debug Value")] SerialPort data_stream = new SerialPort("COM5", 9600);
+    SerialPort data_stream = new SerialPort("COM5", 9600);
+    
+    [Header("Debug Value")]
     public string receivedString;
-
+    
     [SerializeField] private string[] datas = new string[4];
 
     [Header("Value that can be modified")]
-    [SerializeField] private float sensivity = 1f;
-    [SerializeField] private int minClampValue = 150;
+    [SerializeField] private float sensivity = .1f;
+    [SerializeField] private int minClampValue = 80;
     [SerializeField] private int maxClampValue = 500;
 
     private Rigidbody _rb;
