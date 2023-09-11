@@ -58,12 +58,12 @@ def ImportAllAssets():
 	StaticMesh_PreImportPath = []
 	print('========================= Creating StaticMesh tasks... =========================')
 	
-	def CreateTask_SM_LEt():
-		################[ Import LEt as StaticMesh type ]################
-		print('================[ New import task : LEt as StaticMesh type ]================')
-		FilePath = os.path.join(r'D:\Fork\CrossMoth\blendFiles\ExportedFbx\StaticMesh\SM_LEt.fbx')
-		AdditionalParameterLoc = os.path.join(r'D:\Fork\CrossMoth\blendFiles\ExportedFbx\StaticMesh\SM_LEt_AdditionalParameter.ini')
-		AssetImportPath = (os.path.join(unrealImportLocation, r'').replace('\\','/')).rstrip('/')
+	def CreateTask_SM_Ttordu():
+		################[ Import Ttordu as StaticMesh type ]################
+		print('================[ New import task : Ttordu as StaticMesh type ]================')
+		FilePath = os.path.join(r'D:\Fork\CrossMoth\blendFiles\ExportedFbx\StaticMesh\cursed\SM_Ttordu.fbx')
+		AdditionalParameterLoc = os.path.join(r'D:\Fork\CrossMoth\blendFiles\ExportedFbx\StaticMesh\cursed\SM_Ttordu_AdditionalParameter.ini')
+		AssetImportPath = (os.path.join(unrealImportLocation, r'cursed').replace('\\','/')).rstrip('/')
 		task = unreal.AssetImportTask()
 		task.filename = FilePath
 		task.destination_path = AssetImportPath
@@ -82,16 +82,16 @@ def ImportAllAssets():
 		task.get_editor_property('options').static_mesh_import_data.set_editor_property('auto_generate_collision', True)
 		task.get_editor_property('options').static_mesh_import_data.set_editor_property('static_mesh_lod_group', 'None')
 		task.get_editor_property('options').static_mesh_import_data.set_editor_property('generate_lightmap_u_vs', True)
-		print('================[ import asset : LEt ]================')
+		print('================[ import asset : Ttordu ]================')
 		unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
 		if len(task.imported_object_paths) > 0:
 			asset = unreal.find_asset(task.imported_object_paths[0])
 		else:
 			asset = None
 		if asset == None:
-			ImportFailList.append('Asset "LEt" not found for after inport')
+			ImportFailList.append('Asset "Ttordu" not found for after inport')
 			return
-		print('========================= Imports of LEt completed ! Post treatment started...	=========================')
+		print('========================= Imports of Ttordu completed ! Post treatment started...	=========================')
 		asset.set_editor_property('lod_group', 'None')
 		asset.get_editor_property('body_setup').set_editor_property('collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_DEFAULT) 
 		asset.get_editor_property('asset_import_data').set_editor_property('vertex_color_import_option', unreal.VertexColorImportOption.IGNORE) 
@@ -109,10 +109,10 @@ def ImportAllAssets():
 			lodAsset = unreal.find_asset(lodTask.imported_object_paths[0])
 			slot_replaced = unreal.EditorStaticMeshLibrary.set_lod_from_static_mesh(asset, x+1, lodAsset, 0, True)
 			unreal.EditorAssetLibrary.delete_asset(lodTask.imported_object_paths[0])
-		print('========================= Post treatment of LEt completed !	 =========================')
+		print('========================= Post treatment of Ttordu completed !	 =========================')
 		unreal.EditorAssetLibrary.save_loaded_asset(asset)
 		ImportedList.append([asset, 'StaticMesh'])
-	CreateTask_SM_LEt()
+	CreateTask_SM_Ttordu()
 	
 	
 	
