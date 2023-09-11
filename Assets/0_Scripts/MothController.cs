@@ -28,7 +28,7 @@ public class MothController : MonoBehaviour
         for (int i = 0; i < datas.Length; i++)
         {
             _incomeValues[i] = int.Parse(datas[i]);
-            _incomeValues[i] = Mathf.Clamp(_incomeValues[i], 150, 500);
+            _incomeValues[i] = Mathf.Clamp(_incomeValues[i], minClampValue, maxClampValue);
         }
         
         //apply move values to directional vector
