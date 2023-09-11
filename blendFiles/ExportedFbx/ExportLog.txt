@@ -1,6 +1,6 @@
 ...
 1 StaticMesh(s) | 0 SkeletalMesh(s) | 0 Alembic(s) | 0 Animation(s) | 0 Camera(s) | 0 Other(s)
 
-[StaticMesh] -> "SM_Ttordu.fbx" exported in 0.028323300182819366 sec.
-D:\Fork\CrossMoth\blendFiles\ExportedFbx\StaticMesh\cursed
+[StaticMesh] -> "SM_triangles3blocs.fbx" exported in 0.028993599116802216 sec.
+D:\Fork\CrossMoth\blendFiles\ExportedFbx\StaticMesh\triangles
 
