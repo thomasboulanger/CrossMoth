@@ -1,4 +1,5 @@
 using System.IO.Ports;
+using System.Collections;
 using UnityEngine;
 
 public class MothController : MonoBehaviour
@@ -19,9 +20,13 @@ public class MothController : MonoBehaviour
     private int[] _incomeValues = new int[4];
     private Vector3 _moveValue;
 
-    void Start() => _rb = GetComponent<Rigidbody>();
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        data_stream.Open();
+    }
 
-    void Update()
+    private void Update()
     {
         receivedString = data_stream.ReadLine();
         datas = receivedString.Split(',');
