@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2056011404836361342}
   - component: {fileID: 3200984373564726861}
   - component: {fileID: 2056011404836361339}
+  - component: {fileID: 3684548902464779959}
   - component: {fileID: 2056011404836361338}
   - component: {fileID: 2056011404836361336}
   - component: {fileID: 2056011404836361337}
@@ -118,6 +119,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 2
+--- !u!114 &3684548902464779959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056011404836361312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd191d0161765744baaa40fc6c7e6d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  currentHealth: 0
 --- !u!114 &2056011404836361338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +155,7 @@ MonoBehaviour:
   minClampValue: 150
   maxClampValue: 400
   minimumMovementTreshold: 20
+  smoothRotationValue: 1000
   rightLight: {fileID: 0}
   leftLight: {fileID: 0}
   topLight: {fileID: 0}

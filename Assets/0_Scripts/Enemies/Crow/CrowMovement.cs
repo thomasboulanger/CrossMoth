@@ -71,4 +71,10 @@ public class CrowMovement : EnemyMovement
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Player")) {
+            other.GetComponent<MothHealth>().TakeDamage(1);
+        }
+    }
 }
