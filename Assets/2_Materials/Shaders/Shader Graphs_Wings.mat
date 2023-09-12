@@ -54,9 +54,13 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _displacePower: 16.5
+    - _displacePower: 22.97
     - _multiplierModifier: 1
-    - _power: 4
-    - _speed: 80
+    - _noDark: 0.191
+    - _power: 54.7
+    - _powerTIle: 0.2
+    - _speed: 25
+    - _speedDisplacement: 41.9
+    - _wingsMovement: 0.895
     m_Colors: []
   m_BuildTextureStacks: []
