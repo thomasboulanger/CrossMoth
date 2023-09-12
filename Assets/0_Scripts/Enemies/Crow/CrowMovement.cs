@@ -4,10 +4,10 @@ using UnityEngine;
 public class CrowMovement : EnemyMovement
 {
     // Fall animation
-    private float fallSpeedPercentage = 0;    // 0-1 from no speed to full speed
-    private float fallSpeed = 30f;              // speed
-    private float acceleration = 2f;        // accelerate to full speed in 2 seconds (1 / accel)
+   [SerializeField] private AnimationCurve animationCurve;
+    private float fallCurrentDuration = 0.0f;
     private float yTarget = 0.5f;
+    private Vector3 startPosition;
     private Vector3 targetPosition;
 
     enum State { Landing, Hunting, Leaving };
@@ -23,15 +23,17 @@ public class CrowMovement : EnemyMovement
     {
         base.Start();
         animator = GetComponent<Animator>();
-        targetPosition = new Vector3(graphics.position.x, yTarget, graphics.position.z);
+        startPosition = graphics.localPosition;
+        targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
         state = State.Landing;
     }
 
     void CrowCrash() {
-        if (graphics.position.y > yTarget) {
-            fallSpeedPercentage += Mathf.Min(acceleration * Time.deltaTime, 1);    // limit to 1 for "full speed"
-            Vector3 pos = Vector3.MoveTowards(graphics.position, targetPosition, fallSpeed * fallSpeedPercentage * Time.deltaTime);
-            graphics.position = pos;
+        if (fallCurrentDuration < 1.0f) {
+            Vector3 pos = Vector3.LerpUnclamped(startPosition, targetPosition, animationCurve.Evaluate(fallCurrentDuration));
+            Debug.Log(pos);
+            fallCurrentDuration += Time.deltaTime;
+            graphics.localPosition = pos;
         } else {
             state = State.Hunting;
         }
