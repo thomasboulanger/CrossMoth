@@ -28,10 +28,10 @@ public class CrowMovement : EnemyMovement
     protected override void Start()
     {
         base.Start();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         landingStartPosition = graphics.localPosition;
         state = State.Landing;
-        animator.SetTrigger("Falling");
+        //animator.SetTrigger("Falling");
     }
 
     protected override void Update()
@@ -42,7 +42,7 @@ public class CrowMovement : EnemyMovement
             currentStayDuration += Time.deltaTime;
             if (currentStayDuration >= stayDuration) {
                 state = State.Leaving;
-                animator.SetTrigger("Leaving");
+                //animator.SetTrigger("Leaving");
             }
         }
         if (state == State.Leaving) {
@@ -58,7 +58,7 @@ public class CrowMovement : EnemyMovement
             graphics.localPosition = pos;
         } else {
             state = State.Hunting;
-            animator.SetTrigger("Hunting");
+            //animator.SetTrigger("Hunting");
         }
     }
 
