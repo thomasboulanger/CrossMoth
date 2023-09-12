@@ -44,7 +44,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.8
+  m_Speed: 1.5
   m_Acceleration: 999
   avoidancePriority: 50
   m_AngularSpeed: 999
@@ -69,7 +69,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  maxDistance: 2
   landingAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -136,7 +135,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  stayDuration: 3
+  stayDuration: 5
   graphics: {fileID: 5422227169397331235}
 --- !u!1 &5422227169397331232
 GameObject:
