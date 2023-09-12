@@ -11688,7 +11688,7 @@ PrefabInstance:
     - target: {fileID: 2056011404836361337, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: portName
-      value: COM6
+      value: COM4
       objectReference: {fileID: 0}
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
@@ -11710,6 +11710,26 @@ PrefabInstance:
       propertyPath: gauche
       value: 
       objectReference: {fileID: 648649223}
+    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: topLight
+      value: 
+      objectReference: {fileID: 956146657}
+    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: downLight
+      value: 
+      objectReference: {fileID: 786097566}
+    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: leftLight
+      value: 
+      objectReference: {fileID: 648649223}
+    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: rightLight
+      value: 
+      objectReference: {fileID: 1971772697}
     - target: {fileID: 2056011404836361340, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: m_RootOrder
