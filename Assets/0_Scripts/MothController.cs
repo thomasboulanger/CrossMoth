@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class MothController : MonoBehaviour {
@@ -10,6 +11,7 @@ public class MothController : MonoBehaviour {
     [SerializeField] private int minClampValue = 80;
     [SerializeField] private int maxClampValue = 500;
     [SerializeField] private int minimumMovementTreshold = 20;
+    [SerializeField] private float smoothRotationValue = 1000.0f;
 
     [SerializeField] private GameObject rightLight;
     [SerializeField] private GameObject leftLight;
@@ -49,6 +51,10 @@ public class MothController : MonoBehaviour {
         //apply move values to directional vector
         _moveValue = new Vector3(_finalValueX, 0, _finalValueZ) * (Time.deltaTime * sensivity);
         _rb.AddForce(_moveValue);
+
+        // Rotation
+        Quaternion targetRotation = Quaternion.LookRotation(_moveValue);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothRotationValue * Time.deltaTime);
     }
 
     void UpdateLights() {
