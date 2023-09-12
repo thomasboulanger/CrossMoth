@@ -11,21 +11,18 @@ public class MothController : MonoBehaviour {
     [SerializeField] private int maxClampValue = 500;
     [SerializeField] private int minimumMovementTreshold = 20;
 
+    [SerializeField] private GameObject rightLight;
+    [SerializeField] private GameObject leftLight;
+    [SerializeField] private GameObject topLight;
+    [SerializeField] private GameObject downLight;
+    
     private SerialController _serialController;
     private Rigidbody _rb;
     private int[] _incomeValues = new int[4];
     private Vector3 _moveValue;
     private int _finalValueX;
     private int _finalValueZ;
-
-    [SerializeField] private GameObject haut;
-    [SerializeField] private GameObject bas;
-    [SerializeField] private GameObject gauche;
-    [SerializeField] private GameObject droite;
-
-    [SerializeField] private float bouncePower = 2f;
-    [SerializeField] private bool useBounce;
-
+    
     private void Start() {
         _rb = GetComponent<Rigidbody>();
         _serialController = GetComponent<SerialController>();
@@ -55,14 +52,9 @@ public class MothController : MonoBehaviour {
     }
 
     void UpdateLights() {
-        droite.SetActive(_incomeValues[0] > minClampValue);
-        gauche.SetActive(_incomeValues[1] > minClampValue);
-        haut.SetActive(_incomeValues[2] > minClampValue);
-        bas.SetActive(_incomeValues[3] > minClampValue);
-    }
-
-    private void OnCollisionEnter(Collision collision) {
-        if (!useBounce) return;
-        _rb.AddForce(Vector3.Reflect(_rb.velocity, collision.contacts[0].normal) * bouncePower * _rb.velocity.magnitude);
+        rightLight.SetActive(_incomeValues[0] > minClampValue);
+        leftLight.SetActive(_incomeValues[1] > minClampValue);
+        topLight.SetActive(_incomeValues[2] > minClampValue);
+        downLight.SetActive(_incomeValues[3] > minClampValue);
     }
 }
