@@ -21,6 +21,9 @@ public class MothControlerGraph : MonoBehaviour
     [SerializeField] private GameObject gauche;
     [SerializeField] private GameObject droite;
 
+    [SerializeField] private bool useBounce;
+
+
     private Rigidbody _rb;
     void Start()
     {
@@ -67,6 +70,8 @@ public class MothControlerGraph : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!useBounce) return;
+
         _rb.AddForce(Vector3.Reflect(_rb.velocity, collision.contacts[0].normal) * bouncePower* _rb.velocity.magnitude);
         Debug.Log("aaaaa");
     }
