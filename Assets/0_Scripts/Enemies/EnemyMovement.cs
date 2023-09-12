@@ -4,10 +4,10 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 
 public class EnemyMovement : MonoBehaviour {
-    private NavMeshAgent _nav;
 
+    private NavMeshAgent _nav;
     [SerializeField] private Transform player;
-    [SerializeField] private float maxDistance = 2f;
+
     private float movementUpdateDelay = 0.5f;
     private float currentMovementUpdateDelay = 0.0f;
     
@@ -17,8 +17,10 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     protected virtual void Update() {
-        if (!player) return;
-        
+        if (player) MoveTowardsPlayer();
+    }
+
+    protected virtual void MoveTowardsPlayer() {
         currentMovementUpdateDelay += Time.deltaTime;
         if (currentMovementUpdateDelay > movementUpdateDelay) {
             currentMovementUpdateDelay = 0.0f;
