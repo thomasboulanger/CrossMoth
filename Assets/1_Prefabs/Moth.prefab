@@ -156,6 +156,7 @@ MonoBehaviour:
   maxClampValue: 400
   minimumMovementTreshold: 20
   smoothRotationValue: 1000
+  maxStreetLampAlpha: 0.5
   rightLight: {fileID: 0}
   leftLight: {fileID: 0}
   topLight: {fileID: 0}
