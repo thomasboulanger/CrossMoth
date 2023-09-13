@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class AirStrike : MonoBehaviour
 {
     [SerializeField] private GameObject airStrikeGameObject;
+    [SerializeField] private GameObject airStrikeDebugGameObject;
 
     [Header("Value that can be modified")] 
     [SerializeField] private float spawnRadiusAroundPlayer = 5;
@@ -67,6 +68,10 @@ public class AirStrike : MonoBehaviour
         go.name = "AirStrikeObject";
         go.GetComponent<AirStrikeObject>()
             .Init(_strikePosition, delayBeforeAirStrikeHitGround, airStrikeSpeedCurve, damageValue, explosionRadius);
+
+        GameObject godebug = Instantiate(airStrikeDebugGameObject, _strikePosition, Quaternion.identity);
+        godebug.name = "AirStrikeDebug";
+        Destroy(godebug, 3);
     }
 
     private Vector3 GetRandomStrikePosition()

@@ -183,7 +183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f76f51486c38f48895602d2b3856a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airStrikeGameObject: {fileID: 0}
+  airStrikeGameObject: {fileID: 1968658404545483657, guid: 65a375050d706a848bb050aa11305e67,
+    type: 3}
+  airStrikeDebugGameObject: {fileID: 1968658404545483657, guid: 240af70d64e62be4dbc168e34c7b82c3,
+    type: 3}
   spawnRadiusAroundPlayer: 5
   minDelayBetweenAirStrike: 3.2
   maxDelayBetweenAirStrikes: 10
