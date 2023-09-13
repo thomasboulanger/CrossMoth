@@ -60,11 +60,11 @@ Material:
     - _scaleSmallNoise: 28.84
     - _scroll: 0.76
     - _smoothness: 0.57
-    - _smoothstepMultiplier: 0.18
+    - _smoothstepMultiplier: 0.24
     m_Colors:
     - _col1: {r: 0.08366265, g: 0.496, b: 0.095614456, a: 0}
     - _col2: {r: 0.01657777, g: 0.373, b: 0.011051859, a: 0}
-    - _secondaryBC: {r: 0.3142363, g: 0.3142363, b: 0.3142363, a: 0}
+    - _secondaryBC: {r: 0.41509438, g: 0.41509438, b: 0.41509438, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &347261717551406824
 MonoBehaviour:
