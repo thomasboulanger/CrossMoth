@@ -1418,7 +1418,7 @@ PrefabInstance:
     - target: {fileID: 2986435195305060195, guid: ef78e848ccdb9944192638e213f0815d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2986435195305060195, guid: ef78e848ccdb9944192638e213f0815d,
         type: 3}
@@ -5194,7 +5194,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 89.96, y: 0, z: 0}
 --- !u!114 &778797392
 MonoBehaviour:
@@ -11952,7 +11952,7 @@ PrefabInstance:
     - target: {fileID: 2056011404836361337, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: portName
-      value: COM4
+      value: COM6
       objectReference: {fileID: 0}
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
@@ -11982,7 +11982,7 @@ PrefabInstance:
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: enableDebugMovement
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
