@@ -20,7 +20,7 @@ public class AirStrikeObject : MonoBehaviour
         _speedModifierCurve = speedModifierCurve;
         _damageValue = damageValue;
         _explosionRadius = explosionRadius;
-        Destroy(this, duration);
+        Destroy(gameObject, duration);
     }
 
     private void Update()
@@ -45,7 +45,5 @@ public class AirStrikeObject : MonoBehaviour
             if (!element.transform.CompareTag("Player")) continue;
             element.GetComponent<MothHealth>().TakeDamage(_damageValue);
         }
-
-        Destroy(gameObject);
     }
 }
