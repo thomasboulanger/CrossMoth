@@ -17,10 +17,9 @@ GameObject:
   - component: {fileID: 2056011404836361338}
   - component: {fileID: 2056011404836361336}
   - component: {fileID: 2056011404836361337}
-  - component: {fileID: 6934597513032307651}
   m_Layer: 0
   m_Name: Moth
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd191d0161765744baaa40fc6c7e6d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 999
   currentHealth: 0
 --- !u!114 &2056011404836361338
 MonoBehaviour:
@@ -204,33 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc5f48af2cffd747a079fe8c632e2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: COM4
+  portName: COM6
   baudRate: 9600
   messageListener: {fileID: 0}
   reconnectionDelay: 1000
   maxUnreadMessages: 1
---- !u!195 &6934597513032307651
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056011404836361312}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1001 &1657223502743393189
 PrefabInstance:
   m_ObjectHideFlags: 0

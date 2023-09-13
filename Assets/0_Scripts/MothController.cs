@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MothController : MonoBehaviour {
     [Header("Debug Value")]
@@ -13,10 +14,10 @@ public class MothController : MonoBehaviour {
     [SerializeField] private int minimumMovementTreshold = 20;
     [SerializeField] private float smoothRotationValue = 1000.0f;
 
-    [SerializeField] private GameObject rightLight;
-    [SerializeField] private GameObject leftLight;
-    [SerializeField] private GameObject topLight;
-    [SerializeField] private GameObject downLight;
+    [SerializeField] private Image rightLight;
+    [SerializeField] private Image leftLight;
+    [SerializeField] private Image topLight;
+    [SerializeField] private Image downLight;
     
     private SerialController _serialController;
     private Rigidbody _rb;
@@ -58,9 +59,25 @@ public class MothController : MonoBehaviour {
     }
 
     void UpdateLights() {
-        rightLight.SetActive(_incomeValues[0] > minClampValue);
-        leftLight.SetActive(_incomeValues[1] > minClampValue);
-        topLight.SetActive(_incomeValues[2] > minClampValue);
-        downLight.SetActive(_incomeValues[3] > minClampValue);
+        Color tempColor;
+        tempColor = rightLight.color;
+        tempColor.a = Remap(_incomeValues[0], minClampValue, maxClampValue, 0f, 0.22f);
+        rightLight.color = tempColor;
+
+        tempColor = leftLight.color;
+        tempColor.a = Remap(_incomeValues[1], minClampValue, maxClampValue, 0f, 0.22f);
+        leftLight.color = tempColor;
+
+        tempColor = topLight.color;
+        tempColor.a = Remap(_incomeValues[2], minClampValue, maxClampValue, 0f, 0.22f);
+        topLight.color = tempColor;
+
+        tempColor = downLight.color;
+        tempColor.a = Remap(_incomeValues[3], minClampValue, maxClampValue, 0f, 0.22f);
+        downLight.color = tempColor;
+    }
+
+    float Remap(float value, float from1, float to1, float from2, float to2) {
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 }
