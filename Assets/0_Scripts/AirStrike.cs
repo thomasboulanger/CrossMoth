@@ -20,7 +20,7 @@ public class AirStrike : MonoBehaviour
 
     private float _currentTimeBeforeStart;
     private float _currentDelayBetweenAirStrike;
-    private Vector3 _moth;
+    private Transform _moth;
     private Vector3 _strikePosition;
     private Camera _camera;
 
@@ -34,7 +34,7 @@ public class AirStrike : MonoBehaviour
     private void Start()
     {
         _currentTimeBeforeStart = delayBeforeFirstAirStrike;
-        _moth = GameObject.FindGameObjectWithTag("Player").transform.position;
+        _moth = GameObject.FindGameObjectWithTag("Player").transform;
         _camera = Camera.main;
     }
 
@@ -71,7 +71,7 @@ public class AirStrike : MonoBehaviour
 
     private Vector3 GetRandomStrikePosition()
     {
-        return _moth + new Vector3(Random.Range(-50, 50), 0, Random.Range(-50, 50));
+        return _moth.position + new Vector3(Random.Range(-50, 50), 0, Random.Range(-50, 50));
     }
 
     private Vector3 GetStrikePositionInScreen()
@@ -81,7 +81,7 @@ public class AirStrike : MonoBehaviour
         bool isInsideScreenBounds;
         do
         {
-            tmp = _moth + new Vector3
+            tmp = _moth.position + new Vector3
             (
                 Random.Range(-50, 50),
                 0,
@@ -99,7 +99,7 @@ public class AirStrike : MonoBehaviour
 
     private Vector3 GetStrikePositionAroundPlayer()
     {
-        return _moth + new Vector3
+        return _moth.position + new Vector3
         (
             Random.Range(-spawnRadiusAroundPlayer, spawnRadiusAroundPlayer),
             0,
