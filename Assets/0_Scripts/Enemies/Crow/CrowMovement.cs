@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class CrowMovement : EnemyMovement
 {
+    // Attack
+    [SerializeField] private float attackDamage = 1.0f;
+    private bool canAttack = true;
+
+
     // Fall animation
-   [SerializeField] private AnimationCurve landingAnimationCurve;
+    [SerializeField] private AnimationCurve landingAnimationCurve;
     private float fallCurrentDuration = 0.0f;
     private Vector3 landingStartPosition;
 
@@ -42,11 +47,11 @@ public class CrowMovement : EnemyMovement
             currentStayDuration += Time.deltaTime;
             if (currentStayDuration >= stayDuration) {
                 state = State.Leaving;
+                leavingStartPosition = graphics.localPosition;
                 //animator.SetTrigger("Leaving");
             }
         }
         if (state == State.Leaving) {
-            leavingStartPosition = graphics.localPosition;
             CrowLeaving();
         }
     }
@@ -73,8 +78,12 @@ public class CrowMovement : EnemyMovement
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Player")) {
-            other.GetComponent<MothHealth>().TakeDamage(1);
+        if (other.CompareTag("Player") && canAttack) {
+            other.GetComponent<MothHealth>().TakeDamage(attackDamage);
+            // Making sure the crow leaves after dmg and cannot attack twice
+            canAttack = false;
+            state = State.Leaving;
+            leavingStartPosition = graphics.localPosition;
         }
     }
 }

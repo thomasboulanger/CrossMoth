@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2056011404836361337}
   m_Layer: 0
   m_Name: Moth
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd191d0161765744baaa40fc6c7e6d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 999
   currentHealth: 0
 --- !u!114 &2056011404836361338
 MonoBehaviour:
@@ -156,6 +156,7 @@ MonoBehaviour:
   maxClampValue: 400
   minimumMovementTreshold: 20
   smoothRotationValue: 1000
+  maxStreetLampAlpha: 0.5
   rightLight: {fileID: 0}
   leftLight: {fileID: 0}
   topLight: {fileID: 0}
@@ -203,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc5f48af2cffd747a079fe8c632e2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: COM4
+  portName: COM6
   baudRate: 9600
   messageListener: {fileID: 0}
   reconnectionDelay: 1000
