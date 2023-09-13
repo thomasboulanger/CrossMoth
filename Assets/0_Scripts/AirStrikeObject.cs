@@ -55,7 +55,8 @@ public class AirStrikeObject : MonoBehaviour
         {
             if (element.transform.CompareTag("Player"))
             {
-                //apply damages here 
+                //apply damages here
+                element.GetComponent<MothHealth>().TakeDamage(_damageValue);
                 break;
             }
         }
