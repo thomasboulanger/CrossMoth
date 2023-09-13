@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -30,10 +31,10 @@ public class MothController : MonoBehaviour {
     private int _finalValueZ;
     private PlayerInput _playerInput;
     
+    private void Awake() => _playerInput = GetComponent<PlayerInput>();
     private void Start() {
         _rb = GetComponent<Rigidbody>();
         _serialController = GetComponent<SerialController>();
-        _playerInput = GetComponent<PlayerInput>();
     }
 
     private void Update() {
