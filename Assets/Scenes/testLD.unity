@@ -3716,7 +3716,7 @@ PrefabInstance:
     - target: {fileID: 5422227168270537201, guid: df15a021d1788ee43845458ccca9e721,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5422227168270537201, guid: df15a021d1788ee43845458ccca9e721,
         type: 3}
@@ -5773,6 +5773,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1988165794}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &806486778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806486780}
+  - component: {fileID: 806486779}
+  m_Layer: 0
+  m_Name: CrowSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &806486779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806486778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d227b8e924875246a87a69a07ad4a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crowGameObject: {fileID: 5422227168270537207, guid: df15a021d1788ee43845458ccca9e721,
+    type: 3}
+  mothNavmeshAgent: {fileID: 1859921737}
+  minDelayBetweenSpawns: 10
+  maxDelayBetweenSpawns: 15
+  delayBeforeFirstSpawn: 1
+  spawnRadiusAroundPlayer: 10
+  minWalkableSpawnDistanceFromMoth: 8
+  maxWalkableSpawnDistanceFromMoth: 12
+  crowHeightAtSpawn: 0.5
+--- !u!4 &806486780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806486778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &821804216
 PrefabInstance:
@@ -12288,6 +12342,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5681927a73e67834094fcb876e994cac, type: 3}
+--- !u!195 &1859921737 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6934597513032307651, guid: 5681927a73e67834094fcb876e994cac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1859921736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1861017836
 PrefabInstance:
   m_ObjectHideFlags: 0
