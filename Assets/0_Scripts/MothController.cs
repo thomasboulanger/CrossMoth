@@ -1,5 +1,5 @@
-using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MothController : MonoBehaviour {
@@ -26,10 +26,12 @@ public class MothController : MonoBehaviour {
     private Vector3 _moveValue;
     private int _finalValueX;
     private int _finalValueZ;
+    private PlayerInput _playerInput;
     
     private void Start() {
         _rb = GetComponent<Rigidbody>();
         _serialController = GetComponent<SerialController>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     private void Update() {
