@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MothHealth : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 4;
     [SerializeField] private float currentHealth;
+
+    private Slider slider;
+    
     void Start()
     {
+        slider = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
         currentHealth = maxHealth;
+        slider.value = 1;
     }
 
     void Update()
@@ -18,9 +24,18 @@ public class MothHealth : MonoBehaviour
 
     public void TakeDamage(float dmg) {
         currentHealth -= dmg;
+        slider.value = currentHealth / maxHealth;
         if (currentHealth <= 0) {
             Die();
         }
+    }
+
+    public void Heal(float heal) {
+        currentHealth += heal;
+        if (currentHealth > maxHealth) {
+            currentHealth = maxHealth;
+        }
+        slider.value = currentHealth / maxHealth;
     }
 
     void Die() {
