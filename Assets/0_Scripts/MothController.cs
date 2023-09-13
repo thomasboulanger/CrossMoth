@@ -1,12 +1,14 @@
-using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MothController : MonoBehaviour {
     [Header("Debug Value")]
     [SerializeField] private string receivedString;
     [SerializeField] private string[] datas = new string[4];
-
+    [SerializeField] private bool enableDebugMovement;
+    [SerializeField] private float debugMovementSpeedModifier = 1000;
+    
     [Header("Value that can be modified")]
     [SerializeField] private float sensivity = .1f;
     [SerializeField] private int minClampValue = 80;
@@ -26,10 +28,12 @@ public class MothController : MonoBehaviour {
     private Vector3 _moveValue;
     private int _finalValueX;
     private int _finalValueZ;
+    private PlayerInput _playerInput;
     
     private void Start() {
         _rb = GetComponent<Rigidbody>();
         _serialController = GetComponent<SerialController>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     private void Update() {
@@ -49,10 +53,22 @@ public class MothController : MonoBehaviour {
         _finalValueZ = _incomeValues[2] - _incomeValues[3];
         if (Mathf.Abs(_finalValueX) < minimumMovementTreshold) _finalValueX = 0;
         if (Mathf.Abs(_finalValueZ) < minimumMovementTreshold) _finalValueZ = 0;
-        
-        //apply move values to directional vector
-        _moveValue = new Vector3(_finalValueX, 0, _finalValueZ).normalized * (Time.deltaTime * sensivity);
-        _rb.AddForce(_moveValue);
+
+        if (enableDebugMovement)
+        {
+            if (_playerInput.actions["Pause"].WasPressedThisFrame()) GameManager.Instance.ChangePauseState();
+            
+            _moveValue = _playerInput.actions["Move"].ReadValue<Vector2>();
+            _moveValue = new Vector3(_moveValue.x, 0, _moveValue.y);
+            _moveValue = _moveValue.normalized * (debugMovementSpeedModifier * Time.deltaTime * sensivity);
+            _rb.AddForce(_moveValue);
+        }
+        else
+        {
+            //apply move values to directional vector
+            _moveValue = new Vector3(_finalValueX, 0, _finalValueZ).normalized * (Time.deltaTime * sensivity);
+            _rb.AddForce(_moveValue);
+        }
 
         // Rotation
         Quaternion targetRotation = Quaternion.LookRotation(_rb.velocity * -1);

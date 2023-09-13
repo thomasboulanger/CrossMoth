@@ -63,11 +63,9 @@ public class AirStrike : MonoBehaviour
             SpawnState.SpawnAroundPlayer => GetStrikePositionAroundPlayer(),
             _ => throw new ArgumentOutOfRangeException()
         };
-        GameObject go = Instantiate(airStrikeGameObject,
-            _strikePosition + new Vector3(0, airStrikeObjectHeightAtSpawn, 0), Quaternion.identity);
+        GameObject go = Instantiate(airStrikeGameObject, _strikePosition + new Vector3(0, airStrikeObjectHeightAtSpawn, 0), Quaternion.identity);
         go.name = "AirStrikeObject";
-        go.GetComponent<AirStrikeObject>()
-            .Init(_strikePosition, delayBeforeAirStrikeHitGround, airStrikeSpeedCurve, damageValue, explosionRadius);
+        go.GetComponent<AirStrikeObject>().Init(_strikePosition, delayBeforeAirStrikeHitGround, airStrikeSpeedCurve, damageValue, explosionRadius);
 
         GameObject godebug = Instantiate(airStrikeDebugGameObject, _strikePosition, Quaternion.identity);
         godebug.name = "AirStrikeDebug";

@@ -190,7 +190,7 @@ MonoBehaviour:
   spawnRadiusAroundPlayer: 5
   minDelayBetweenAirStrike: 3.2
   maxDelayBetweenAirStrikes: 10
-  delayBeforeAirStrikeHitGround: 3
+  delayBeforeAirStrikeHitGround: 2
   airStrikeSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -226,7 +226,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   damageValue: 1
   delayBeforeFirstAirStrike: 10
-  airStrikeObjectHeightAtSpawn: 15
+  airStrikeObjectHeightAtSpawn: 40
   explosionRadius: 3
   airStrikeSpawnOption: 2
 --- !u!4 &19573214
@@ -9347,6 +9347,96 @@ Transform:
   m_Father: {fileID: 1112465305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1269590021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269590024}
+  - component: {fileID: 1269590023}
+  - component: {fileID: 1269590022}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1269590022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269590021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 3
+  m_MaxPlayerCount: -1
+  m_AllowJoining: 0
+  m_JoinBehavior: 2
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 0}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &1269590023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269590021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8454ef2e70a424d43ba18150a5bb096f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePanel: {fileID: 0}
+--- !u!4 &1269590024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269590021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1297970490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11993,6 +12083,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moth
       objectReference: {fileID: 0}
+    - target: {fileID: 2056011404836361336, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 298557372}
+    - target: {fileID: 2056011404836361336, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056011404836361337, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: portName
+      value: COM4
+      objectReference: {fileID: 0}
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: topLight
@@ -12018,6 +12123,16 @@ PrefabInstance:
       propertyPath: rightLight
       value: 
       objectReference: {fileID: 225303954}
+    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: enableDebugMovement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: debugMovementSpeedModifier
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 2056011404836361340, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: m_RootOrder
