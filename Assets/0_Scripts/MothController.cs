@@ -12,7 +12,7 @@ public class MothController : MonoBehaviour {
     [SerializeField] private int minClampValue = 80;
     [SerializeField] private int maxClampValue = 500;
     [SerializeField] private int minimumMovementTreshold = 20;
-    [SerializeField] private float smoothRotationValue = 1000.0f;
+    [SerializeField] private float smoothRotationValue = 666.0f;
     [SerializeField] private float maxStreetLampAlpha = 0.3f;
 
     [SerializeField] private Image rightLight;
@@ -49,13 +49,13 @@ public class MothController : MonoBehaviour {
         _finalValueZ = _incomeValues[2] - _incomeValues[3];
         if (Mathf.Abs(_finalValueX) < minimumMovementTreshold) _finalValueX = 0;
         if (Mathf.Abs(_finalValueZ) < minimumMovementTreshold) _finalValueZ = 0;
-
+        
         //apply move values to directional vector
-        _moveValue = new Vector3(_finalValueX, 0, _finalValueZ) * (Time.deltaTime * sensivity);
+        _moveValue = new Vector3(_finalValueX, 0, _finalValueZ).normalized * (Time.deltaTime * sensivity);
         _rb.AddForce(_moveValue);
 
         // Rotation
-        Quaternion targetRotation = Quaternion.LookRotation(_moveValue);
+        Quaternion targetRotation = Quaternion.LookRotation(_rb.velocity * -1);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothRotationValue * Time.deltaTime);
     }
 

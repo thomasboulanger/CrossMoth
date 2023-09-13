@@ -11988,6 +11988,11 @@ PrefabInstance:
       objectReference: {fileID: 1180897196}
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
+      propertyPath: sensivity
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
       propertyPath: rightLight
       value: 
       objectReference: {fileID: 225303954}
