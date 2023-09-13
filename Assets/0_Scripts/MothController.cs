@@ -13,6 +13,7 @@ public class MothController : MonoBehaviour {
     [SerializeField] private int maxClampValue = 500;
     [SerializeField] private int minimumMovementTreshold = 20;
     [SerializeField] private float smoothRotationValue = 1000.0f;
+    [SerializeField] private float maxStreetLampAlpha = 0.3f;
 
     [SerializeField] private Image rightLight;
     [SerializeField] private Image leftLight;
@@ -61,19 +62,19 @@ public class MothController : MonoBehaviour {
     void UpdateLights() {
         Color tempColor;
         tempColor = rightLight.color;
-        tempColor.a = Remap(_incomeValues[0], minClampValue, maxClampValue, 0f, 0.22f);
+        tempColor.a = Remap(_incomeValues[0], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         rightLight.color = tempColor;
 
         tempColor = leftLight.color;
-        tempColor.a = Remap(_incomeValues[1], minClampValue, maxClampValue, 0f, 0.22f);
+        tempColor.a = Remap(_incomeValues[1], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         leftLight.color = tempColor;
 
         tempColor = topLight.color;
-        tempColor.a = Remap(_incomeValues[2], minClampValue, maxClampValue, 0f, 0.22f);
+        tempColor.a = Remap(_incomeValues[2], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         topLight.color = tempColor;
 
         tempColor = downLight.color;
-        tempColor.a = Remap(_incomeValues[3], minClampValue, maxClampValue, 0f, 0.22f);
+        tempColor.a = Remap(_incomeValues[3], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         downLight.color = tempColor;
     }
 
