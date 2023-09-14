@@ -7,7 +7,6 @@ public class CrowMovement : EnemyMovement
     [SerializeField] private float attackDamage = 1.0f;
     private bool canAttack = true;
 
-
     // Fall animation
     [SerializeField] private AnimationCurve landingAnimationCurve;
     private float fallCurrentDuration = 0.0f;
@@ -26,9 +25,16 @@ public class CrowMovement : EnemyMovement
     [SerializeField] private float stayDuration = 3.0f;
     private float currentStayDuration = 0.0f;
 
+    // Forward rotation when turning
+    [SerializeField] private float rotationSpeed = 10.0f;
+    [SerializeField] private float rotationAmplitude = 1;
+    private Vector3 lastSavedForward;
+    private float lerpedDiffAngle = 0;
+    
     // Components
     [SerializeField] private Animator animator;
     public Transform graphics;
+    public Transform crowRotateTransform;
 
     //Particules
     [SerializeField] private GameObject explosionParticule;
@@ -36,7 +42,6 @@ public class CrowMovement : EnemyMovement
     protected override void Start()
     {
         base.Start();
-
         landingStartPosition = graphics.localPosition;
         state = State.Landing;
         animator.SetBool("isFlying", false);
@@ -46,7 +51,15 @@ public class CrowMovement : EnemyMovement
     {
         if (state == State.Landing) CrowCrash();
         if (state == State.Hunting) {
+            // Forward rotation
+            float forwardDiffAngle = Vector3.SignedAngle(lastSavedForward, crowRotateTransform.forward, crowRotateTransform.up) * rotationAmplitude;
+            lerpedDiffAngle = Mathf.Lerp(lerpedDiffAngle, forwardDiffAngle, Time.deltaTime * rotationSpeed);
+            crowRotateTransform.localRotation = Quaternion.Euler(crowRotateTransform.localRotation.eulerAngles.x, crowRotateTransform.localRotation.eulerAngles.y, lerpedDiffAngle);
+            lastSavedForward = crowRotateTransform.forward;
+            
+            // Chasing
             base.MoveTowardsPlayer();
+            // Leaving ?
             currentStayDuration += Time.deltaTime;
             if (currentStayDuration >= stayDuration) {
                 StartCrowLeave();

@@ -53,4 +53,4 @@ MonoBehaviour:
   spawnRadiusAroundPlayer: 10
   minWalkableSpawnDistanceFromMoth: 6
   maxWalkableSpawnDistanceFromMoth: 8
-  crowHeightAtSpawn: 0.5
+  crowHeightAtSpawn: 0
