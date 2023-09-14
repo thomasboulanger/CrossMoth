@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class MothHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 4;
-    [SerializeField] private float currentHealth;
+    public float maxHealth = 4;
+    public float currentHealth;
 
     private Slider slider;
     
