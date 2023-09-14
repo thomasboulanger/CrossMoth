@@ -1222,7 +1222,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430128196
 GameObject:
@@ -1657,7 +1657,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &664970672
 PrefabInstance:
@@ -1866,7 +1866,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &736897759
 PrefabInstance:
@@ -2123,7 +2123,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 89.96, y: 0, z: 0}
 --- !u!1 &800574528
 GameObject:
@@ -2979,7 +2979,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147390131
 GameObject:
@@ -3027,7 +3027,7 @@ PrefabInstance:
     - target: {fileID: 5248184585319816715, guid: a1baad5eab0099149848e627329089ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5248184585319816715, guid: a1baad5eab0099149848e627329089ee,
         type: 3}
@@ -3570,10 +3570,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: AirStrikeSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4299835500194457301, guid: f15d0751689f1d042b7bd8db7b83c2c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299835500194457303, guid: f15d0751689f1d042b7bd8db7b83c2c9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4299835500194457303, guid: f15d0751689f1d042b7bd8db7b83c2c9,
         type: 3}
@@ -4046,7 +4051,7 @@ Transform:
   - {fileID: 887825179}
   - {fileID: 1361345679}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1673644006
 PrefabInstance:
