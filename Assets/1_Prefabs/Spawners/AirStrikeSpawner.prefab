@@ -48,10 +48,10 @@ MonoBehaviour:
     type: 3}
   airStrikeDebugGameObject: {fileID: 1968658404545483657, guid: 240af70d64e62be4dbc168e34c7b82c3,
     type: 3}
-  spawnRadiusAroundPlayer: 5
-  minDelayBetweenAirStrike: 3.2
-  maxDelayBetweenAirStrikes: 10
-  delayBeforeAirStrikeHitGround: 2
+  spawnRadiusAroundPlayer: 3
+  minDelayBetweenAirStrike: 2
+  maxDelayBetweenAirStrikes: 5
+  delayBeforeAirStrikeHitGround: 4
   airStrikeSpeedCurve:
     serializedVersion: 2
     m_Curve:

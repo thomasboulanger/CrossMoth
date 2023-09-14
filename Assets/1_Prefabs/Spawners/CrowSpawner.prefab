@@ -47,10 +47,10 @@ MonoBehaviour:
   crowGameObject: {fileID: 5422227168270537207, guid: df15a021d1788ee43845458ccca9e721,
     type: 3}
   mothNavmeshAgent: {fileID: 0}
-  minDelayBetweenSpawns: 10
-  maxDelayBetweenSpawns: 15
-  delayBeforeFirstSpawn: 1
+  minDelayBetweenSpawns: 3
+  maxDelayBetweenSpawns: 10
+  delayBeforeFirstSpawn: 5
   spawnRadiusAroundPlayer: 10
-  minWalkableSpawnDistanceFromMoth: 8
-  maxWalkableSpawnDistanceFromMoth: 12
+  minWalkableSpawnDistanceFromMoth: 6
+  maxWalkableSpawnDistanceFromMoth: 8
   crowHeightAtSpawn: 0.5
