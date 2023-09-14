@@ -37,35 +37,35 @@ public class MothController : MonoBehaviour {
         _serialController = GetComponent<SerialController>();
     }
 
-    private void Update() {
-        receivedString = _serialController.ReadSerialMessage();
-        if (string.IsNullOrEmpty(receivedString) || receivedString is "__Connected__" or "__Disconnected__") return;
-        datas = receivedString.Split(',');
-
-        //receiving value order --> right/left/top/bottom
-        for (int i = 0; i < datas.Length; i++) {
-            _incomeValues[i] = int.Parse(datas[i]);
-            _incomeValues[i] = Mathf.Clamp(_incomeValues[i], minClampValue, maxClampValue);
-        }
-
-        UpdateLights();
-
-        _finalValueX = _incomeValues[0] - _incomeValues[1];
-        _finalValueZ = _incomeValues[2] - _incomeValues[3];
-        if (Mathf.Abs(_finalValueX) < minimumMovementTreshold) _finalValueX = 0;
-        if (Mathf.Abs(_finalValueZ) < minimumMovementTreshold) _finalValueZ = 0;
-
+    private void Update() 
+    {
         if (enableDebugMovement)
         {
             if (_playerInput.actions["Pause"].WasPressedThisFrame()) GameManager.Instance.ChangePauseState();
-            
             _moveValue = _playerInput.actions["Move"].ReadValue<Vector2>();
-            _moveValue = new Vector3(_moveValue.x, 0, _moveValue.y);
+            _moveValue = new Vector3(_moveValue.x,0,_moveValue.y);
             _moveValue = _moveValue.normalized * (debugMovementSpeedModifier * Time.deltaTime * sensivity);
             _rb.AddForce(_moveValue);
         }
         else
         {
+            receivedString = _serialController.ReadSerialMessage();
+            if (string.IsNullOrEmpty(receivedString) || receivedString is "__Connected__" or "__Disconnected__") return;
+            datas = receivedString.Split(',');
+
+            //receiving value order --> right/left/top/bottom
+            for (int i = 0; i < datas.Length; i++) {
+                _incomeValues[i] = int.Parse(datas[i]);
+                _incomeValues[i] = Mathf.Clamp(_incomeValues[i], minClampValue, maxClampValue);
+            }
+
+            UpdateLights();
+
+            _finalValueX = _incomeValues[0] - _incomeValues[1];
+            _finalValueZ = _incomeValues[2] - _incomeValues[3];
+            if (Mathf.Abs(_finalValueX) < minimumMovementTreshold) _finalValueX = 0;
+            if (Mathf.Abs(_finalValueZ) < minimumMovementTreshold) _finalValueZ = 0;
+            
             //apply move values to directional vector
             _moveValue = new Vector3(_finalValueX, 0, _finalValueZ).normalized * (Time.deltaTime * sensivity);
             _rb.AddForce(_moveValue);

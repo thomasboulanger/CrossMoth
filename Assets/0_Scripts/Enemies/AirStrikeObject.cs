@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class AirStrikeObject : MonoBehaviour
@@ -10,6 +12,9 @@ public class AirStrikeObject : MonoBehaviour
     private AnimationCurve _speedModifierCurve;
     private int _damageValue;
     private float _explosionRadius;
+    private GameObject _player;
+
+    private void Start() => _player = GameObject.FindWithTag("Player");
 
     public void Init(Vector3 endPoint, float duration, AnimationCurve speedModifierCurve, int damageValue,
         float explosionRadius)
@@ -20,7 +25,15 @@ public class AirStrikeObject : MonoBehaviour
         _speedModifierCurve = speedModifierCurve;
         _damageValue = damageValue;
         _explosionRadius = explosionRadius;
-        Destroy(gameObject, duration);
+        
+        StartCoroutine(DeadEnd());
+    }
+
+    IEnumerator DeadEnd()
+    {
+        yield return new WaitForSeconds(_duration);
+        if(Vector3.Distance(transform.position,_player.transform.position) < _explosionRadius) _player.GetComponent<MothHealth>().TakeDamage(_damageValue);
+        Destroy(gameObject);
     }
 
     private void Update()
@@ -34,16 +47,5 @@ public class AirStrikeObject : MonoBehaviour
 
         // Interpolate between start and end points using the adjusted speed
         transform.position = Vector3.Lerp(_startPoint, _endPoint, speedFactor);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRadius);
-
-        foreach (Collider element in colliders)
-        {
-            if (!element.transform.CompareTag("Player")) continue;
-            element.GetComponent<MothHealth>().TakeDamage(_damageValue);
-        }
     }
 }
