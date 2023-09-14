@@ -27,16 +27,19 @@ public class CrowMovement : EnemyMovement
     private float currentStayDuration = 0.0f;
 
     // Components
-    private Animator animator;
+    [SerializeField] private Animator animator;
     public Transform graphics;
+
+    //Particules
+    [SerializeField] private GameObject explosionParticule;
 
     protected override void Start()
     {
         base.Start();
-        //animator = GetComponent<Animator>();
+
         landingStartPosition = graphics.localPosition;
         state = State.Landing;
-        //animator.SetTrigger("Falling");
+        animator.SetBool("isFlying", false);
     }
 
     protected override void Update()
@@ -48,7 +51,7 @@ public class CrowMovement : EnemyMovement
             if (currentStayDuration >= stayDuration) {
                 state = State.Leaving;
                 leavingStartPosition = graphics.localPosition;
-                //animator.SetTrigger("Leaving");
+                UpdateAnimationState(false);
             }
         }
         if (state == State.Leaving) {
@@ -63,7 +66,7 @@ public class CrowMovement : EnemyMovement
             graphics.localPosition = pos;
         } else {
             state = State.Hunting;
-            //animator.SetTrigger("Hunting");
+            UpdateAnimationState(true);
         }
     }
 
@@ -84,6 +87,13 @@ public class CrowMovement : EnemyMovement
             canAttack = false;
             state = State.Leaving;
             leavingStartPosition = graphics.localPosition;
+            UpdateAnimationState(true);
         }
+    }
+
+    void UpdateAnimationState(bool status)
+    {
+        animator.SetBool("isFlying", status);
+        Instantiate(explosionParticule, transform.position, Quaternion.identity);
     }
 }
