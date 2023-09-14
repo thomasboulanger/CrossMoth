@@ -39,9 +39,15 @@ public class CrowMovement : EnemyMovement
     //Particules
     [SerializeField] private GameObject explosionParticule;
 
+    //Sounds
+    [SerializeField] private AudioClip[] audioClips;
+    private AudioSource audioSource;
+
     protected override void Start()
     {
         base.Start();
+
+        audioSource = GetComponent<AudioSource>();
         landingStartPosition = graphics.localPosition;
         state = State.Landing;
         animator.SetBool("isFlying", false);
@@ -78,6 +84,11 @@ public class CrowMovement : EnemyMovement
         } else {
             state = State.Hunting;
             UpdateAnimationState(true);
+
+            //sounds
+
+            audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+            audioSource.Play();
         }
     }
 
@@ -89,6 +100,9 @@ public class CrowMovement : EnemyMovement
         state = State.Leaving;
         leavingStartPosition = graphics.localPosition;
         UpdateAnimationState(false);
+
+        //sounds
+
     }
 
     void CrowLeaving() {
