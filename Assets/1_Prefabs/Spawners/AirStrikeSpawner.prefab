@@ -88,5 +88,5 @@ MonoBehaviour:
   damageValue: 1
   delayBeforeFirstAirStrike: 10
   airStrikeObjectHeightAtSpawn: 40
-  explosionRadius: 3
+  explosionRadius: 1.2
   airStrikeSpawnOption: 2

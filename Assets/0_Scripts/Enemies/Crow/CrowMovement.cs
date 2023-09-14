@@ -49,9 +49,7 @@ public class CrowMovement : EnemyMovement
             base.MoveTowardsPlayer();
             currentStayDuration += Time.deltaTime;
             if (currentStayDuration >= stayDuration) {
-                state = State.Leaving;
-                leavingStartPosition = graphics.localPosition;
-                UpdateAnimationState(false);
+                StartCrowLeave();
             }
         }
         if (state == State.Leaving) {
@@ -70,6 +68,16 @@ public class CrowMovement : EnemyMovement
         }
     }
 
+    void StartCrowLeave() {
+        // Flips top-down of the 3d object
+        graphics.localScale = new Vector3(graphics.localScale.x, -graphics.localScale.y, graphics.localScale.z);
+
+        canAttack = false;
+        state = State.Leaving;
+        leavingStartPosition = graphics.localPosition;
+        UpdateAnimationState(false);
+    }
+
     void CrowLeaving() {
         if (leavingCurrentDuration < 1.0f) {
             Vector3 pos = Vector3.LerpUnclamped(leavingStartPosition, new Vector3(0.0f, 100.0f, 0.0f), leavingAnimationCurve.Evaluate(leavingCurrentDuration));
@@ -83,17 +91,14 @@ public class CrowMovement : EnemyMovement
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player") && canAttack) {
             other.GetComponent<MothHealth>().TakeDamage(attackDamage);
-            // Making sure the crow leaves after dmg and cannot attack twice
-            canAttack = false;
-            state = State.Leaving;
-            leavingStartPosition = graphics.localPosition;
-            UpdateAnimationState(true);
+            StartCrowLeave();
         }
     }
 
     void UpdateAnimationState(bool status)
     {
         animator.SetBool("isFlying", status);
-        Instantiate(explosionParticule, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(explosionParticule, transform.position, Quaternion.identity);
+        Destroy(go, 5);
     }
 }
