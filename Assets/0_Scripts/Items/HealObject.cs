@@ -9,9 +9,12 @@ public class HealObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player" && !used) {
-            other.gameObject.GetComponent<MothHealth>().Heal(healAmount);
-            used = true;
-            Destroy(flowerTop);
+            MothHealth mh = other.gameObject.GetComponent<MothHealth>();
+            if (mh.currentHealth < mh.maxHealth) {
+                mh.Heal(healAmount);
+                used = true;
+                Destroy(flowerTop);
+            }
         }
     }
 }
