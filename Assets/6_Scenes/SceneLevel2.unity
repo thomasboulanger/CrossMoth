@@ -1357,7 +1357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &571607236
 PrefabInstance:
@@ -3707,7 +3707,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1115103665
 PrefabInstance:
@@ -5056,7 +5056,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1563623837
 PrefabInstance:
@@ -5255,7 +5255,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580815534
 GameObject:
@@ -5338,7 +5338,7 @@ Transform:
   - {fileID: 91255585}
   - {fileID: 2138582251}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1602640348
 PrefabInstance:
@@ -5958,7 +5958,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 89.96, y: 0, z: 0}
 --- !u!1001 &1720494836
 PrefabInstance:
@@ -5975,7 +5975,7 @@ PrefabInstance:
     - target: {fileID: 4299835500194457303, guid: f15d0751689f1d042b7bd8db7b83c2c9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4299835500194457303, guid: f15d0751689f1d042b7bd8db7b83c2c9,
         type: 3}
@@ -7290,7 +7290,7 @@ PrefabInstance:
     - target: {fileID: 5248184585319816715, guid: a1baad5eab0099149848e627329089ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5248184585319816715, guid: a1baad5eab0099149848e627329089ee,
         type: 3}
