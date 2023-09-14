@@ -86,7 +86,6 @@ public class CrowMovement : EnemyMovement
             UpdateAnimationState(true);
 
             //sounds
-
             audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
             audioSource.Play();
         }
@@ -102,7 +101,8 @@ public class CrowMovement : EnemyMovement
         UpdateAnimationState(false);
 
         //sounds
-
+        audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+        audioSource.Play();
     }
 
     void CrowLeaving() {
