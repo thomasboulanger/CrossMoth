@@ -7,15 +7,15 @@ namespace SlimUI.ModernMenu{
         }
 
         public void SciFi(){
-            Application.OpenURL("https://dorian-vabre.itch.io/did-somebody-say-doughnuts");
+            Application.OpenURL("https://enjmin.cnam.fr/enjmin/ecole-nationale-du-jeu-et-des-medias-interactifs-accueil-1126103.kjsp");
         }
 
         public void Clean1(){
-            Application.OpenURL("https://lamaxelle.itch.io/ovum");
+            Application.OpenURL("https://dorian-vabre.itch.io/did-somebody-say-doughnuts");
         }
-
+        
         public void Essence(){
-            Application.OpenURL("https://enjmin.cnam.fr/enjmin/ecole-nationale-du-jeu-et-des-medias-interactifs-accueil-1126103.kjsp");
+            Application.OpenURL("https://lamaxelle.itch.io/ovum");
         }
     }
 }

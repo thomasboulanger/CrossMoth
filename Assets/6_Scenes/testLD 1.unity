@@ -5418,6 +5418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1908791481}
+  cameraDrift: 0
 --- !u!1 &786097566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2986435195267940210, guid: ef78e848ccdb9944192638e213f0815d,
