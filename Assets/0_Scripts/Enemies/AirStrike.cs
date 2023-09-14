@@ -69,7 +69,7 @@ public class AirStrike : MonoBehaviour
 
         GameObject godebug = Instantiate(airStrikeDebugGameObject, _strikePosition, Quaternion.identity);
         godebug.name = "AirStrikeDebug";
-        Destroy(godebug, 3);
+        Destroy(godebug, delayBeforeAirStrikeHitGround);
     }
 
     private Vector3 GetRandomStrikePosition()

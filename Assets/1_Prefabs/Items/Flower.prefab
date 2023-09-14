@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 1
+  flowerTop: {fileID: 9087698716699162750}
 --- !u!1001 &2255869189164914775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,17 +161,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 25.141392
+      value: 10.093698
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 25.141392
+      value: 10.093698
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 25.141392
+      value: 10.093698
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
@@ -190,17 +191,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0.000000044703484
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
         type: 3}
@@ -232,6 +233,12 @@ PrefabInstance:
 --- !u!4 &1784776125991436220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e4ffa8a3578840543b15e72424f900ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 2255869189164914775}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9087698716699162750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7013099432040996905, guid: e4ffa8a3578840543b15e72424f900ee,
     type: 3}
   m_PrefabInstance: {fileID: 2255869189164914775}
   m_PrefabAsset: {fileID: 0}

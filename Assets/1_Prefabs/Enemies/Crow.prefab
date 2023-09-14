@@ -138,8 +138,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   stayDuration: 5
+  rotationSpeed: 10
+  rotationAmplitude: 80
   animator: {fileID: 568339345388286338}
   graphics: {fileID: 5422227169397331235}
+  crowRotateTransform: {fileID: 29727370906850923}
   explosionParticule: {fileID: 4196083856769809441, guid: 33a9d7514a9a90e408a070b1a53ce9b3,
     type: 3}
 --- !u!136 &5907914778914574238
