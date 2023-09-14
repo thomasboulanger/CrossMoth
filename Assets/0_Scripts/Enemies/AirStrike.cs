@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -69,7 +70,9 @@ public class AirStrike : MonoBehaviour
 
         GameObject godebug = Instantiate(airStrikeDebugGameObject, _strikePosition, Quaternion.identity);
         godebug.name = "AirStrikeDebug";
-        Destroy(godebug, delayBeforeAirStrikeHitGround);
+
+        StartCoroutine(DestroyAirObject(godebug));
+        //Destroy(godebug, delayBeforeAirStrikeHitGround);
     }
 
     private Vector3 GetRandomStrikePosition()
@@ -108,5 +111,13 @@ public class AirStrike : MonoBehaviour
             0,
             Random.Range(-spawnRadiusAroundPlayer, spawnRadiusAroundPlayer)
         );
+    }
+
+    private IEnumerator DestroyAirObject(GameObject obj)
+    {
+        yield return new WaitForSeconds(delayBeforeAirStrikeHitGround);
+        obj.GetComponent<Animator>().SetTrigger("destroy");
+        yield return new WaitForSeconds(1f);
+        Destroy(obj);
     }
 }

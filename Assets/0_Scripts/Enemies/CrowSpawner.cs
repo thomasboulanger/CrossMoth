@@ -68,7 +68,7 @@ public class CrowSpawner : MonoBehaviour
             );
             validPositionFound = CheckIfCrowPositionIsValid(returnPos);
         }
-        return returnPos;
+        return new Vector3(returnPos.x,0,returnPos.z);
     }
 
     // Checks if the crow spawns near the player (ie not behind a long wall that is near but implies a long detour

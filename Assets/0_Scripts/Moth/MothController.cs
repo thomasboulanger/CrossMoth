@@ -72,7 +72,10 @@ public class MothController : MonoBehaviour {
         }
 
         // Rotation
-        Quaternion targetRotation = Quaternion.LookRotation(_rb.velocity * -1);
+        Quaternion targetRotation;
+        if (_rb.velocity != Vector3.zero) targetRotation = Quaternion.LookRotation(_rb.velocity * -1);
+        else targetRotation = transform.rotation;
+
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothRotationValue * Time.deltaTime);
     }
 

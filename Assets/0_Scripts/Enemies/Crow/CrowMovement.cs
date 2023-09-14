@@ -31,6 +31,7 @@ public class CrowMovement : EnemyMovement
     private Vector3 lastSavedForward;
     private float lerpedDiffAngle = 0;
     
+    
     // Components
     [SerializeField] private Animator animator;
     public Transform graphics;
@@ -42,6 +43,10 @@ public class CrowMovement : EnemyMovement
     //Sounds
     [SerializeField] private AudioClip[] audioClips;
     private AudioSource audioSource;
+
+    //animation
+    [SerializeField] private SkinnedMeshRenderer crowSmr;
+    [SerializeField]private float blendShapePower = 50f;
 
     protected override void Start()
     {
@@ -62,7 +67,10 @@ public class CrowMovement : EnemyMovement
             lerpedDiffAngle = Mathf.Lerp(lerpedDiffAngle, forwardDiffAngle, Time.deltaTime * rotationSpeed);
             crowRotateTransform.localRotation = Quaternion.Euler(crowRotateTransform.localRotation.eulerAngles.x, crowRotateTransform.localRotation.eulerAngles.y, lerpedDiffAngle);
             lastSavedForward = crowRotateTransform.forward;
-            
+
+            crowSmr.SetBlendShapeWeight(lerpedDiffAngle > 0 ? 1:0, Mathf.Abs(lerpedDiffAngle) * blendShapePower);
+            crowSmr.SetBlendShapeWeight(lerpedDiffAngle > 0 ? 0:1, 0);
+
             // Chasing
             base.MoveTowardsPlayer();
             // Leaving ?
@@ -73,6 +81,8 @@ public class CrowMovement : EnemyMovement
         }
         if (state == State.Leaving) {
             CrowLeaving();
+            crowSmr.SetBlendShapeWeight(0, 0);
+            crowSmr.SetBlendShapeWeight(1, 0);
         }
     }
 
@@ -103,6 +113,10 @@ public class CrowMovement : EnemyMovement
         //sounds
         audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
         audioSource.Play();
+
+        //rotation reset
+        crowRotateTransform.localRotation = Quaternion.identity;
+
     }
 
     void CrowLeaving() {

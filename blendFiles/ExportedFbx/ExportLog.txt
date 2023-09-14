@@ -2,13 +2,13 @@ This file was generated with the addons Blender for UnrealEngine : https://githu
 
 0 StaticMesh(s) | 1 SkeletalMesh(s) | 0 Alembic(s) | 2 Animation(s) | 0 Camera(s) | 0 Other(s)
 
-crow_rig [SkeletalMesh] EXPORTED IN 6.41s
+crow_rig [SkeletalMesh] EXPORTED IN 0.15s
 //ExportedFbx\SkeletalMesh\crow_rig\SKM_crow_rig.fbx
 //ExportedFbx\SkeletalMesh\crow_rig\SKM_crow_rig_AdditionalTrack.json
 
-Anim_dive [Animation (Action)] EXPORTED IN 26.0s
+Anim_dive [Animation (Action)] EXPORTED IN 0.38s
 //ExportedFbx\SkeletalMesh\crow_rig\Anim\Anim_dive.fbx
 
-Anim_flySimple [Animation (Action)] EXPORTED IN 0.9s
+Anim_flySimple [Animation (Action)] EXPORTED IN 0.28s
 //ExportedFbx\SkeletalMesh\crow_rig\Anim\Anim_flySimple.fbx
 

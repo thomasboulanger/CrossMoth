@@ -64,7 +64,7 @@ Material:
     m_Colors:
     - _col1: {r: 0.08366265, g: 0.496, b: 0.095614456, a: 0}
     - _col2: {r: 0.01657777, g: 0.373, b: 0.011051859, a: 0}
-    - _secondaryBC: {r: 0.41509438, g: 0.41509438, b: 0.41509438, a: 0}
+    - _secondaryBC: {r: 0.990566, g: 0.990566, b: 0.990566, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &347261717551406824
 MonoBehaviour:

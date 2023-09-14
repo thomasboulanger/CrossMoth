@@ -59,9 +59,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _maxLerp: 1
-    - _minLerp: 0.302
-    - _smoothness: 0.25
+    - _minLerp: 0
+    - _smoothness: 0.086
     m_Colors:
-    - _maxLerpColor: {r: 0, g: 0, b: 0, a: 0}
-    - _minLerpColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
+    - _maxLerpColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0}
+    - _minLerpColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0}
   m_BuildTextureStacks: []

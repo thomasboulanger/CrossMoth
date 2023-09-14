@@ -49,7 +49,7 @@ MonoBehaviour:
   airStrikeDebugGameObject: {fileID: 1968658404545483657, guid: 240af70d64e62be4dbc168e34c7b82c3,
     type: 3}
   spawnRadiusAroundPlayer: 3
-  minDelayBetweenAirStrike: 2
+  minDelayBetweenAirStrike: 3.5
   maxDelayBetweenAirStrikes: 5
   delayBeforeAirStrikeHitGround: 4
   airStrikeSpeedCurve:
@@ -74,10 +74,19 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.27475464
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.99402595
+      value: 0.9922871
+      inSlope: 2.6269221
+      outSlope: 2.6269221
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0.15851258
+      outWeight: 0.13568656
+    - serializedVersion: 3
+      time: 1.0562136
+      value: 0.9906852
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -87,6 +96,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   damageValue: 1
   delayBeforeFirstAirStrike: 10
-  airStrikeObjectHeightAtSpawn: 40
+  airStrikeObjectHeightAtSpawn: 60
   explosionRadius: 1.2
   airStrikeSpawnOption: 2

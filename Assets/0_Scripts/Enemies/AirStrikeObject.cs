@@ -13,6 +13,9 @@ public class AirStrikeObject : MonoBehaviour
     private float _explosionRadius;
     private GameObject _player;
 
+    private bool _inAnim;
+    [SerializeField] private GameObject explosion;
+
     private void Start() => _player = GameObject.FindWithTag("Player");
 
     public void Init(Vector3 endPoint, float duration, AnimationCurve speedModifierCurve, int damageValue,
@@ -32,11 +35,15 @@ public class AirStrikeObject : MonoBehaviour
     {
         yield return new WaitForSeconds(_duration);
         if(Vector3.Distance(transform.position,_player.transform.position) < _explosionRadius) _player.GetComponent<MothHealth>().TakeDamage(_damageValue);
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger("destroy");
+        Destroy(Instantiate(explosion, transform.position, Quaternion.identity),2f);
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 
     private void Update()
     {
+        if (_inAnim) return;
         _startTime += Time.deltaTime;
         
         // Calculate the interpolation factor (t) based on time
@@ -46,6 +53,6 @@ public class AirStrikeObject : MonoBehaviour
         float speedFactor = _speedModifierCurve.Evaluate(t);
 
         // Interpolate between start and end points using the adjusted speed
-        transform.position = Vector3.Lerp(_startPoint, _endPoint, speedFactor);
+        transform.position = Vector3.LerpUnclamped(_startPoint, _endPoint, speedFactor);
     }
 }
