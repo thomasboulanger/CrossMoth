@@ -40,8 +40,6 @@ namespace SlimUI.ModernMenu{
         public GameObject PanelKeyBindings;
         [Tooltip("The UI Sub-Panel under KEY BINDINGS for MOVEMENT")]
         public GameObject PanelMovement;
-        [Tooltip("The UI Sub-Panel under KEY BINDINGS for COMBAT")]
-        public GameObject PanelCombat;
         [Tooltip("The UI Sub-Panel under KEY BINDINGS for GENERAL")]
         public GameObject PanelGeneral;
         
@@ -58,8 +56,6 @@ namespace SlimUI.ModernMenu{
         public GameObject lineKeyBindings;
         [Tooltip("Highlight Image for when MOVEMENT Sub-Tab is selected in KEY BINDINGS")]
         public GameObject lineMovement;
-        [Tooltip("Highlight Image for when COMBAT Sub-Tab is selected in KEY BINDINGS")]
-        public GameObject lineCombat;
         [Tooltip("Highlight Image for when GENERAL Sub-Tab is selected in KEY BINDINGS")]
         public GameObject lineGeneral;
 
@@ -169,8 +165,6 @@ namespace SlimUI.ModernMenu{
 
 			PanelMovement.SetActive(false);
 			lineMovement.SetActive(false);
-			PanelCombat.SetActive(false);
-			lineCombat.SetActive(false);
 			PanelGeneral.SetActive(false);
 			lineGeneral.SetActive(false);
 		}
@@ -206,14 +200,7 @@ namespace SlimUI.ModernMenu{
 			PanelMovement.SetActive(true);
 			lineMovement.SetActive(true);
 		}
-
-		public void CombatPanel(){
-			DisablePanels();
-			PanelKeyBindings.SetActive(true);
-			PanelCombat.SetActive(true);
-			lineCombat.SetActive(true);
-		}
-
+		
 		public void GeneralPanel(){
 			DisablePanels();
 			PanelKeyBindings.SetActive(true);

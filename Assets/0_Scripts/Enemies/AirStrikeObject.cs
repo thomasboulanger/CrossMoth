@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -39,6 +38,7 @@ public class AirStrikeObject : MonoBehaviour
     private void Update()
     {
         _startTime += Time.deltaTime;
+        
         // Calculate the interpolation factor (t) based on time
         float t = _startTime / _duration;
 
