@@ -2044,7 +2044,7 @@ PrefabInstance:
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: enableDebugMovement
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
