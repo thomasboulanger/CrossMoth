@@ -6383,6 +6383,11 @@ PrefabInstance:
       propertyPath: mothNavmeshAgent
       value: 
       objectReference: {fileID: 547687076}
+    - target: {fileID: 6352802892054608837, guid: ffe814b0ee1da244aa294e3d3f6e80ec,
+        type: 3}
+      propertyPath: crowHeightAtSpawn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffe814b0ee1da244aa294e3d3f6e80ec, type: 3}
 --- !u!1001 &1913119284
