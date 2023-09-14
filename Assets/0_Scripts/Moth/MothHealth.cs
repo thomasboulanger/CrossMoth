@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MothHealth : MonoBehaviour
@@ -40,5 +41,6 @@ public class MothHealth : MonoBehaviour
 
     void Die() {
         Destroy(gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 }
