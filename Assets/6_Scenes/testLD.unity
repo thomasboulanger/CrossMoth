@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17582072, g: 0.22001825, b: 0.3023485, a: 1}
+  m_IndirectSpecularColor: {r: 0.17582037, g: 0.22001795, b: 0.30234784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5327,6 +5327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1908791481}
+  cameraDrift: 0
 --- !u!1001 &787754436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15467,5 +15468,20 @@ PrefabInstance:
       propertyPath: mothNavmeshAgent
       value: 
       objectReference: {fileID: 1457473276}
+    - target: {fileID: 6352802892054608837, guid: ffe814b0ee1da244aa294e3d3f6e80ec,
+        type: 3}
+      propertyPath: minDelayBetweenSpawns
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352802892054608837, guid: ffe814b0ee1da244aa294e3d3f6e80ec,
+        type: 3}
+      propertyPath: maxWalkableSpawnDistanceFromMoth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352802892054608837, guid: ffe814b0ee1da244aa294e3d3f6e80ec,
+        type: 3}
+      propertyPath: minWalkableSpawnDistanceFromMoth
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffe814b0ee1da244aa294e3d3f6e80ec, type: 3}
