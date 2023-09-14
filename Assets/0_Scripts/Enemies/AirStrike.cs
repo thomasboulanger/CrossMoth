@@ -74,7 +74,7 @@ public class AirStrike : MonoBehaviour
 
     private Vector3 GetRandomStrikePosition()
     {
-        return _moth.position + new Vector3(Random.Range(-50, 50), 0, Random.Range(-50, 50));
+        return new Vector3(_moth.position.x, 0, _moth.position.z) + new Vector3(Random.Range(-50, 50), 0, Random.Range(-50, 50));
     }
 
     private Vector3 GetStrikePositionInScreen()
@@ -84,7 +84,7 @@ public class AirStrike : MonoBehaviour
         bool isInsideScreenBounds;
         do
         {
-            tmp = _moth.position + new Vector3
+            tmp = new Vector3(_moth.position.x, 0, _moth.position.z) + new Vector3
             (
                 Random.Range(-50, 50),
                 0,
@@ -102,7 +102,7 @@ public class AirStrike : MonoBehaviour
 
     private Vector3 GetStrikePositionAroundPlayer()
     {
-        return _moth.position + new Vector3
+        return new Vector3(_moth.position.x, 0, _moth.position.z) + new Vector3
         (
             Random.Range(-spawnRadiusAroundPlayer, spawnRadiusAroundPlayer),
             0,
