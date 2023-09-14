@@ -6,6 +6,7 @@ public class CopyLocation : MonoBehaviour
 {
 
     [SerializeField] private Transform player;
+    [SerializeField] private float cameraDrift;
     Vector3 offset;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class CopyLocation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = offset + player.position;
+        transform.position = Vector3.Lerp(transform.position, offset + player.position, cameraDrift * Time.deltaTime);
+        //transform.position = offset + player.position;
     }
 }
