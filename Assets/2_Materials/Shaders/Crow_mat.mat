@@ -63,5 +63,5 @@ Material:
     - _smoothness: 0.25
     m_Colors:
     - _maxLerpColor: {r: 0, g: 0, b: 0, a: 0}
-    - _minLerpColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
+    - _minLerpColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
   m_BuildTextureStacks: []
