@@ -1,14 +1,8 @@
 This file was generated with the addons Blender for UnrealEngine : https://github.com/xavier150/Blender-For-UnrealEngine-Addons
 
-0 StaticMesh(s) | 1 SkeletalMesh(s) | 0 Alembic(s) | 2 Animation(s) | 0 Camera(s) | 0 Other(s)
+1 StaticMesh(s) | 0 SkeletalMesh(s) | 0 Alembic(s) | 0 Animation(s) | 0 Camera(s) | 0 Other(s)
 
-crow_rig [SkeletalMesh] EXPORTED IN 0.15s
-//ExportedFbx\SkeletalMesh\crow_rig\SKM_crow_rig.fbx
-//ExportedFbx\SkeletalMesh\crow_rig\SKM_crow_rig_AdditionalTrack.json
-
-Anim_dive [Animation (Action)] EXPORTED IN 0.38s
-//ExportedFbx\SkeletalMesh\crow_rig\Anim\Anim_dive.fbx
-
-Anim_flySimple [Animation (Action)] EXPORTED IN 0.28s
-//ExportedFbx\SkeletalMesh\crow_rig\Anim\Anim_flySimple.fbx
+petale [StaticMesh] EXPORTED IN 0.19s
+//ExportedFbx\StaticMesh\petale\SM_petale.fbx
+//ExportedFbx\StaticMesh\petale\SM_petale_AdditionalTrack.json
 
