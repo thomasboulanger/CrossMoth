@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class VictoryZone : MonoBehaviour
 {
+    public HighScore highScore;
+
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
-            SceneManager.LoadScene("EndScene");
+            highScore.GameEnded(true);
+            Time.timeScale = 0.0f;
         }
     }
 }
