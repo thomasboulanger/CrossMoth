@@ -44,9 +44,9 @@ public class MothController : MonoBehaviour {
 
     private void Update() 
     {
+        if (_playerInput.actions["Pause"].WasPressedThisFrame()) GameManager.Instance.ChangePauseState();
         if (enableDebugMovement)
         {
-            if (_playerInput.actions["Pause"].WasPressedThisFrame()) GameManager.Instance.ChangePauseState();
             _moveValue = _playerInput.actions["Move"].ReadValue<Vector2>();
             _moveValue = new Vector3(_moveValue.x,0,_moveValue.y);
             _moveValue = _moveValue.normalized * (debugMovementSpeedModifier * Time.deltaTime * sensivity);
