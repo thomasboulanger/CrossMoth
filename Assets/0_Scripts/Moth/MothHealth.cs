@@ -99,7 +99,6 @@ public class MothHealth : MonoBehaviour
     }
 
     void Die() {
-        Destroy(gameObject);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("GameOverScene");
     }
 }
