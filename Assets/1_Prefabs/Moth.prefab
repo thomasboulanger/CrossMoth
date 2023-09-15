@@ -147,11 +147,11 @@ MonoBehaviour:
   - 
   - 
   enableDebugMovement: 0
-  debugMovementSpeedModifier: 1000
-  sensivity: 5
-  minClampValue: 150
+  debugMovementSpeedModifier: 0.5
+  sensivity: 500
+  minClampValue: 120
   maxClampValue: 400
-  minimumMovementTreshold: 20
+  minimumMovementTreshold: 30
   smoothRotationValue: 1000
   maxStreetLampAlpha: 0.5
   rightLight: {fileID: 0}

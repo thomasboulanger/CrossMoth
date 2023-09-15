@@ -2675,24 +2675,9 @@ PrefabInstance:
       objectReference: {fileID: 432826959}
     - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
-      propertyPath: sensivity
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
-        type: 3}
       propertyPath: rightLight
       value: 
       objectReference: {fileID: 432826958}
-    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
-        type: 3}
-      propertyPath: enableDebugMovement
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2056011404836361338, guid: 5681927a73e67834094fcb876e994cac,
-        type: 3}
-      propertyPath: debugMovementSpeedModifier
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2056011404836361340, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
       propertyPath: m_RootOrder
