@@ -10,7 +10,12 @@ public class GameManager : MonoBehaviour
    private bool _isGamePaused;
 
    private void Awake() => Instance = this;
-   public void ReturnToMenu() => SceneManager.LoadScene(mainMenuName);
+   public void ReturnToMenu()
+   {
+      _isGamePaused = false;
+      Time.timeScale = 1;
+      SceneManager.LoadScene(mainMenuName);
+   }
    public void Quit() => Application.Quit();
    public void ChangePauseState()
    {
