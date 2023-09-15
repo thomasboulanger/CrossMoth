@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17582072, g: 0.22001825, b: 0.3023485, a: 1}
+  m_IndirectSpecularColor: {r: 0.17582019, g: 0.22001776, b: 0.3023476, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2086,8 +2086,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
         type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: col2.b
+      value: 0.026477398
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: col2.g
+      value: 0.026477398
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: col2.r
+      value: 0.3301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1994582598}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
       propertyPath: maxHealth
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: currentHealth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: minMaxIntensity.x
+      value: 0.283
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684548902464779959, guid: 5681927a73e67834094fcb876e994cac,
+        type: 3}
+      propertyPath: minMaxIntensity.y
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2056011404836361342, guid: 5681927a73e67834094fcb876e994cac, type: 3}
@@ -5080,6 +5120,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e35bd21e58db254d90b101e1167d095, type: 3}
+--- !u!114 &1994582598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8485230439047814164, guid: 0e35bd21e58db254d90b101e1167d095,
+    type: 3}
+  m_PrefabInstance: {fileID: 1994582597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2013047941
 PrefabInstance:
   m_ObjectHideFlags: 0
