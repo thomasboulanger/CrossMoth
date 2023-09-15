@@ -30,18 +30,23 @@ public class MothController : MonoBehaviour {
     private int _finalValueX;
     private int _finalValueZ;
     private PlayerInput _playerInput;
+
+    // Light sounds
+    private LampSoundManager lsm;
+    private bool[] isLit = {false, false, false, false};
     
     private void Awake() => _playerInput = GetComponent<PlayerInput>();
     private void Start() {
         _rb = GetComponent<Rigidbody>();
         _serialController = GetComponent<SerialController>();
+        lsm = GameObject.FindGameObjectWithTag("LampSoundManager").GetComponent<LampSoundManager>();
     }
 
     private void Update() 
     {
+        if (_playerInput.actions["Pause"].WasPressedThisFrame()) GameManager.Instance.ChangePauseState();
         if (enableDebugMovement)
         {
-            if (_playerInput.actions["Pause"].WasPressedThisFrame()) GameManager.Instance.ChangePauseState();
             _moveValue = _playerInput.actions["Move"].ReadValue<Vector2>();
             _moveValue = new Vector3(_moveValue.x,0,_moveValue.y);
             _moveValue = _moveValue.normalized * (debugMovementSpeedModifier * Time.deltaTime * sensivity);
@@ -80,22 +85,44 @@ public class MothController : MonoBehaviour {
     }
 
     void UpdateLights() {
+        // LIGHTS
         Color tempColor;
         tempColor = rightLight.color;
         tempColor.a = Remap(_incomeValues[0], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         rightLight.color = tempColor;
 
+        ManageLampSound(tempColor.a, 0);
+
         tempColor = leftLight.color;
         tempColor.a = Remap(_incomeValues[1], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         leftLight.color = tempColor;
+
+        ManageLampSound(tempColor.a, 1);
 
         tempColor = topLight.color;
         tempColor.a = Remap(_incomeValues[2], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         topLight.color = tempColor;
 
+        ManageLampSound(tempColor.a, 2);
+
         tempColor = downLight.color;
         tempColor.a = Remap(_incomeValues[3], minClampValue, maxClampValue, 0f, maxStreetLampAlpha);
         downLight.color = tempColor;
+
+        ManageLampSound(tempColor.a, 3);
+    }
+
+    private void ManageLampSound(float alpha, int lamp) {
+        // If lit
+        if (alpha > 0.01f) {
+            // If not lit before, play sound
+            if (!isLit[lamp]) lsm.TurnOnSound(lamp);
+            // Anyway, set lit as true to avoid spam-lit sound
+            isLit[lamp] = true;
+        } else {
+            if (isLit[lamp]) lsm.TurnOffSound(lamp);
+            isLit[lamp] = false;
+        }
     }
 
     float Remap(float value, float from1, float to1, float from2, float to2) {
