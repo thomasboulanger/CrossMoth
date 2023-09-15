@@ -126,8 +126,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   speed: 3
   minMaxIntensity: {x: 0.283, y: 0.8}
-  col1: {r: 0, g: 0, b: 0, a: 0}
-  col2: {r: 0.3301887, g: 0.026477398, b: 0.026477398, a: 0}
+  colDmg1: {r: 0, g: 0, b: 0, a: 0}
+  colDmg2: {r: 0.33962262, g: 0.055749357, b: 0.055749357, a: 0}
+  colHeal1: {r: 0, g: 0, b: 0, a: 0}
+  colHeal2: {r: 0.5164827, g: 0.74863034, b: 0.8773585, a: 0}
 --- !u!114 &2056011404836361338
 MonoBehaviour:
   m_ObjectHideFlags: 0
