@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class HighScore : MonoBehaviour
 {
     public int levelNumber;
@@ -13,27 +14,30 @@ public class HighScore : MonoBehaviour
     [SerializeField] private bool levelEnd;
     [SerializeField] private bool levelStart;
     [SerializeField] private bool levelFailure;
-
+    
+    public GameObject endGameUI;
+    
     public Transform scoreObj;
     public Transform timeObj;
     public Transform highScoreObj;
     private float _score;
     private float _time;
-    private TextMeshPro _scoreTxt;
-    private TextMeshPro _timeTxt;
-    private TextMeshPro _highScoreTxt;
+    private TMP_Text _scoreTxt;
+    private TMP_Text _timeTxt;
+    private TMP_Text _highScoreTxt;
+   
 
-    //private bool _levelStart;
-    //private bool _levelEnd;
-    //private bool _levelFailure;
-
-    // Start is called before the first frame update
     void Start()
     {
-        _scoreTxt = scoreObj.GetComponent<TextMeshPro>();
-        _timeTxt = timeObj.GetComponent<TextMeshPro>();
-        _highScoreTxt = highScoreObj.GetComponent<TextMeshPro>();
-        _highScoreTxt.text = "Highscore = " + PlayerPrefs.GetFloat("Highscore" + levelNumber.ToString(), 0).ToString();
+        levelStart = true;
+        displayTime = true;
+        displayScore = false;
+        displayHighScore = false;
+        
+        _scoreTxt = scoreObj.GetComponent<TMP_Text>();
+        _timeTxt = timeObj.GetComponent<TMP_Text>();
+        _highScoreTxt = highScoreObj.GetComponent<TMP_Text>();
+        _highScoreTxt.text = "Highscore = " + PlayerPrefs.GetFloat("Highscore" + levelNumber.ToString(), 0).ToString("F2");
 
         scoreObj.gameObject.SetActive(false);
         timeObj.gameObject.SetActive(false);
@@ -42,17 +46,13 @@ public class HighScore : MonoBehaviour
         if (PlayerPrefs.GetFloat("Highscore" + levelNumber.ToString(), 0) <= 0){ PlayerPrefs.SetFloat("Highscore" + levelNumber.ToString(), 1000000000f);}
     }
 
-    // Update is called once per frame
+    public void GameEnded(bool hasWon) {
+        levelEnd = true;
+        levelFailure = !hasWon;
+    }
+
     void Update()
     {
-        //A faire :
-        //Loqique pour savoir quand displayScore == true/false //
-        //Loqique pour savoir quand displayTime == true/false //
-        //Loqique pour savoir quand displayHighScore == true/false //
-        //Loqique pour savoir quand levelPlay == true/false //
-        //Loqique pour savoir quand levelEnd == true/false //
-        //Loqique pour savoir quand levelStart == true/false //
-        //Loqique pour savoir quand levelFailure == true/false //
         if (levelStart == true) { 
             _score = 0;
             _time = 0;
@@ -64,10 +64,15 @@ public class HighScore : MonoBehaviour
 
         if (levelEnd == true)
         {
+            endGameUI.SetActive(true);
+            displayTime = false;
+            displayScore = true;
+            displayHighScore = true;
+            
             levelPlay = false;
             if (levelFailure == true) { _score = 1000000000f; }
             else { _score = _time; }
-            _scoreTxt.text = "Score = " + _score;
+            _scoreTxt.text = "Score = " + _score.ToString("F2");
             if (_score < PlayerPrefs.GetFloat("Highscore" + levelNumber.ToString(), 0))
             {
                 PlayerPrefs.SetFloat("Highscore" + levelNumber.ToString(), _score);
@@ -76,13 +81,17 @@ public class HighScore : MonoBehaviour
         }
         else if (levelPlay == true) {
             _time += Time.deltaTime;
-            _timeTxt.text = "Time = " + _time;
-            _highScoreTxt.text = "Highscore = " + PlayerPrefs.GetFloat("Highscore" + levelNumber.ToString(), 0).ToString();
+            _timeTxt.text = "Time = " + _time.ToString("F2");
+            _highScoreTxt.text = "Highscore = " + PlayerPrefs.GetFloat("Highscore" + levelNumber.ToString(), 0).ToString("F2");
         }
       
-
         scoreObj.gameObject.SetActive(displayScore);
         timeObj.gameObject.SetActive(displayTime);
         highScoreObj.gameObject.SetActive(displayHighScore);
+    }
+
+    public void ToNextScene() {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
