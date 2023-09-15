@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8344737429426004015}
   - component: {fileID: 2448946001912399690}
   - component: {fileID: 4485856403148743287}
+  - component: {fileID: 7479836873467997412}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -146,6 +147,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healAmount: 1
   flowerTop: {fileID: 9087698716699162750}
+  flowerExplosion: {fileID: 377225417895688276, guid: 1c1b9572d1f0b384f8983c07246a7131,
+    type: 3}
+--- !u!95 &7479836873467997412
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697976865678742089}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb6890ae10adc9d489c1cbf78cc4c95c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2255869189164914775
 PrefabInstance:
   m_ObjectHideFlags: 0
