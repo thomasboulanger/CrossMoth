@@ -22,13 +22,18 @@ public class MothHealth : MonoBehaviour
 
     [SerializeField] private Vector2 minMaxIntensity;
 
-    [SerializeField] private Color col1;
-    [SerializeField] private Color col2;
+    [SerializeField] private Color colDmg1;
+    [SerializeField] private Color colDmg2;
 
+    [SerializeField] private Color colHeal1;
+    [SerializeField] private Color colHeal2;
 
-    private float t;
-    private bool animate;
-    
+    private float tDmg;
+    private bool animateDmg;
+
+    private float tHeal;
+    private bool animateHeal;
+
     void Start()
     {
 
@@ -51,12 +56,25 @@ public class MothHealth : MonoBehaviour
 
     void Update()
     {
-        if (animate)
+        if (animateDmg)
         {
-            t += Time.deltaTime * speed;
-            float alpha = damageLerp.Evaluate(t);
+            tDmg += Time.deltaTime * speed;
+            float alpha = damageLerp.Evaluate(tDmg);
             vignette.intensity.value = Mathf.Lerp(minMaxIntensity.x, minMaxIntensity.y, alpha);
-            vignette.color.value = Color.Lerp(col1, col2, alpha);
+            vignette.color.value = Color.Lerp(colDmg1, colDmg2, alpha);
+            if (tDmg > 1) {
+                animateDmg = false;
+            }
+        }
+        
+        if (animateHeal) {
+            tHeal += Time.deltaTime * speed;
+            float alpha = damageLerp.Evaluate(tHeal);
+            vignette.intensity.value = Mathf.Lerp(minMaxIntensity.x, minMaxIntensity.y, alpha);
+            vignette.color.value = Color.Lerp(colHeal1, colHeal2, alpha);
+            if (tHeal > 1) {
+                animateHeal = false;
+            }
         }
     }
 
@@ -66,8 +84,8 @@ public class MothHealth : MonoBehaviour
         if (currentHealth <= 0) {
             Die();
         }
-        animate = true;
-        t = 0f;
+        animateDmg = true;
+        tDmg = 0f;
     }
 
     public void Heal(float heal) {
@@ -76,6 +94,8 @@ public class MothHealth : MonoBehaviour
             currentHealth = maxHealth;
         }
         slider.value = currentHealth / maxHealth;
+        animateHeal = true;
+        tHeal = 0f;
     }
 
     void Die() {
