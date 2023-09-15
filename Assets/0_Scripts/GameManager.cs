@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
    public static GameManager Instance;
-   [SerializeField] private string mainMenuName;
+   [SerializeField] private string mainMenuName = "MainMenu";
    [SerializeField] private GameObject pausePanel;
 
    private bool _isGamePaused;
