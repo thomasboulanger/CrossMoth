@@ -7,6 +7,10 @@ public class VictoryZone : MonoBehaviour
 {
     public HighScore highScore;
 
+    private void Start() {
+        highScore = GameObject.FindGameObjectWithTag("HighScore").GetComponent<HighScore>();
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             highScore.GameEnded(true);
