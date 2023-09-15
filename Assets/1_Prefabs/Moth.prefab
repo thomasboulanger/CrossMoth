@@ -88,8 +88,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd191d0161765744baaa40fc6c7e6d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 999
-  currentHealth: 0
+  maxHealth: 4
+  currentHealth: 4
+  volume: {fileID: 0}
+  damageLerp:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5049243
+      value: 0.9959829
+      inSlope: -0.002076797
+      outSlope: -0.002076797
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.6580297
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speed: 3
+  minMaxIntensity: {x: 0.283, y: 0.8}
+  col1: {r: 0, g: 0, b: 0, a: 0}
+  col2: {r: 0.3301887, g: 0.026477398, b: 0.026477398, a: 0}
 --- !u!114 &2056011404836361338
 MonoBehaviour:
   m_ObjectHideFlags: 0
