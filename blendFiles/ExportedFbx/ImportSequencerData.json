@@ -6,22 +6,22 @@
     },
     "spawnable_camera": true,
     "startFrame": 1,
-    "endFrame": 40,
+    "endFrame": 250,
     "frameRateDenominator": 1.0,
     "frameRateNumerator": 24,
     "pixel_aspect_x": 1.0,
     "pixel_aspect_y": 1.0,
-    "render_resolution_x": 512,
-    "render_resolution_y": 512,
+    "render_resolution_x": 1920,
+    "render_resolution_y": 1080,
     "secureCrop": 0.0001,
     "unreal_import_location": "/Game/ImportedFbx",
     "cameras": [],
     "marker_sections": [
         {
             "start_time": 1,
-            "end_time": 41,
-            "has_camera": true,
-            "camera_name": "Camera"
+            "end_time": 251,
+            "has_camera": false,
+            "camera_name": ""
         }
     ]
 }

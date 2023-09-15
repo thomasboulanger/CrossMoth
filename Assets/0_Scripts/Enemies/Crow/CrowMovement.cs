@@ -94,7 +94,7 @@ public class CrowMovement : EnemyMovement
         } else {
             state = State.Hunting;
             UpdateAnimationState(true);
-
+            graphics.localPosition = Vector3.zero;
             //sounds
             audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
             audioSource.Play();
