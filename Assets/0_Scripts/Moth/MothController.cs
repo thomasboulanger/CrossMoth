@@ -51,6 +51,7 @@ public class MothController : MonoBehaviour {
             _moveValue = new Vector3(_moveValue.x,0,_moveValue.y);
             _moveValue = _moveValue.normalized * (debugMovementSpeedModifier * Time.deltaTime * sensivity);
             _rb.AddForce(_moveValue);
+            UpdateLightsKeyboard();
         }
         else
         {
@@ -84,6 +85,35 @@ public class MothController : MonoBehaviour {
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothRotationValue * Time.deltaTime);
     }
 
+    private void UpdateLightsKeyboard()
+    {
+        // LIGHTS
+        Color tempColor;
+        tempColor = rightLight.color;
+        tempColor.a = _moveValue.x > 0 ? 1 : 0;
+        rightLight.color = tempColor;
+
+        ManageLampSound(tempColor.a, 0);
+
+        tempColor = leftLight.color;
+        tempColor.a = _moveValue.x < 0 ? 1 : 0;
+        leftLight.color = tempColor;
+
+        ManageLampSound(tempColor.a, 1);
+
+        tempColor = topLight.color;
+        tempColor.a = _moveValue.z > 0 ? 1 : 0;
+        topLight.color = tempColor;
+
+        ManageLampSound(tempColor.a, 2);
+
+        tempColor = downLight.color;
+        tempColor.a = _moveValue.z < 0 ? 1 : 0;
+        downLight.color = tempColor;
+
+        ManageLampSound(tempColor.a, 3);
+    }
+
     void UpdateLights() {
         // LIGHTS
         Color tempColor;
@@ -112,16 +142,16 @@ public class MothController : MonoBehaviour {
         ManageLampSound(tempColor.a, 3);
     }
 
-    private void ManageLampSound(float alpha, int lamp) {
+    private void ManageLampSound(float alpha, int lampIndex) {
         // If lit
         if (alpha > 0.01f) {
             // If not lit before, play sound
-            if (!isLit[lamp]) lsm.TurnOnSound(lamp);
+            if (!isLit[lampIndex]) lsm.TurnOnSound(lampIndex);
             // Anyway, set lit as true to avoid spam-lit sound
-            isLit[lamp] = true;
+            isLit[lampIndex] = true;
         } else {
-            if (isLit[lamp]) lsm.TurnOffSound(lamp);
-            isLit[lamp] = false;
+            if (isLit[lampIndex]) lsm.TurnOffSound(lampIndex);
+            isLit[lampIndex] = false;
         }
     }
 

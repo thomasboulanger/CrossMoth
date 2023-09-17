@@ -148,7 +148,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  enableDebugMovement: 0
+  enableDebugMovement: 1
   debugMovementSpeedModifier: 0.5
   sensivity: 500
   minClampValue: 120
